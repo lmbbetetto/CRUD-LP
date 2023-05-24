@@ -1,0 +1,83 @@
+body {
+    background: #B3D4FF;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8.125rem;
+
+    height: 100vh;
+}
+
+.loginCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+
+    width: 27.875rem;
+    height: 31.125rem;
+    background: #051122;
+    border-radius: 30px;
+
+    padding: 5.0625rem 3.125rem 5.0625rem 3.125rem;
+}
+
+.loginCard h1 {
+    color: white;
+}
+
+.cartoon {
+    width: 35.25rem;
+    height: 35.25rem;
+    background: url("../imagens/cartoon.svg");
+}
+
+.campos form {
+    display: flex;
+    flex-direction: column;
+
+    color: #ffff;
+}
+
+.campos label {
+    margin-bottom: 0.5rem;
+}
+
+.campos input {
+    height: 2.3125rem;
+    width: 21.625rem;
+    border-radius: 15px;
+    border: none;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.campos button {
+    width: 9.3125rem;
+    height: 2.5625rem;
+    background: #259073;
+    border-radius: 15px;
+    border: none;
+
+    cursor: pointer;
+    margin-top: 1.4375rem;
+    margin: 1.4375rem auto 0;
+
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.campos button:hover {
+    background: #194b3e;
+}
+
+.erro {
+    color: red;
+    margin: 0 auto 0.4rem;
+    font-size: 14px;
+}
