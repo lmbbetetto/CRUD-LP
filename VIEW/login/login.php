@@ -45,7 +45,7 @@ if (isset($_POST['codigo']) || isset($_POST['senha'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
     <link rel="stylesheet" href="../css/reset.css">
     <title>Login</title>
 </head>
@@ -56,9 +56,9 @@ if (isset($_POST['codigo']) || isset($_POST['senha'])) {
             <h1>Acessar conta</h1>
             <div class="campos">
                 <form action="" method="POST">
-                    <span class="erro"><?php echo $senhaError; ?></span>
-                    <span class="erro"><?php echo $codigoError; ?></span>
-                    <span class="erro"><?php echo $loginError; ?></span>
+                    <p class="erro"><?php echo $senhaError; ?></p>
+                    <p class="erro"><?php echo $codigoError; ?></p>
+                    <p class="erro"><?php echo $loginError; ?></p>
                     <label>Código</label>
                     <input type="text" name="codigo">
                     

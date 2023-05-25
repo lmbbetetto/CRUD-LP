@@ -18,9 +18,7 @@ include('../../BLL/protect.php');
 <body>
     <div class="container">
         <div class="menu">
-            <div class="logo">
-                
-            </div>
+            <a href="../menuPrincipal/painel.php"><div class="logo"></div></a>
 
             <div class="itens">
                 <p>Opção</p>

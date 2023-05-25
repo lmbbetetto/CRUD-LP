@@ -73,7 +73,8 @@ body {
 }
 
 .campos button:hover {
-    background: #194b3e;
+    /* background: #194b3e; */
+    width: 14rem;
 }
 
 .erro {
