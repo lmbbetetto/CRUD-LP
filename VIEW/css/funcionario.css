@@ -1,0 +1,116 @@
+.containerFunc {
+    max-width: 75%;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.card {
+    margin-top: 4.5625rem;
+    padding: 7.5rem 9.25rem;
+    width: 100%;
+    height: 48.75rem;
+    background: #051122;
+    border-radius: 30px;
+}
+
+.card h1 {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 3.25rem;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+
+    color: #ffff;
+    font-size: 18px;
+}
+
+.card input {
+    height: 2.3125rem;
+    width: 52.75rem;
+    border-radius: 15px;
+    border: none;
+    padding: 1rem 1rem 1rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.card label {
+    margin-bottom: 1rem;
+}
+
+.telCPF {
+    display: flex;
+    flex-direction: row;
+    gap: 4.75rem;
+}
+
+.telCPF input {
+    width: 24rem;
+    margin-top: 1rem;
+}
+
+.senha {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.senha input {
+    width: 28.75rem;
+    padding: 1rem 2.5rem 1rem 1rem;
+}
+
+.senhaEye {
+    color: black;
+    font-size: 17px;
+    position: absolute;
+    right: 47%;
+    top: 36%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.botao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+
+    margin-top: 5rem;
+}
+
+.btnConf {
+    width: 10rem;
+    height: 2.5rem;
+    background: #259073;
+    color: white;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+
+    transition: 0.2s;
+}
+
+.btnConf:hover {
+    background: #1c6d57;
+}
+
+.btnCanc {
+    width: 10rem;
+    height: 2.5rem;
+    background: red;
+    color: white;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+
+    transition: 0.2s;
+}
+
+.btnCanc:hover {
+    background: #9e2618;
+}

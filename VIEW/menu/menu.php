@@ -21,11 +21,12 @@ include('../../BLL/protect.php');
             <a href="../menuPrincipal/painel.php"><div class="logo"></div></a>
 
             <div class="itens">
-                <p>Opção</p>
-                <p>Opção</p>
-                <p>Opção</p>
-                <p>Opção</p>
-                <p>Opção</p>
+                <a>Venda</a>
+                <a>Produto</a>
+                <a>Cliente</a>
+                <a>Fornecedor</a>
+                <a href="../funcionario/funcionario.php">Funcionário</a>
+                <a>Categoria</a>
                 <a href="../login/logout.php"><button class="btn">Sair</button></a>
             </div>
         </div>

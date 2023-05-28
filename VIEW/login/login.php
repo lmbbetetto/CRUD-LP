@@ -48,6 +48,7 @@ if (isset($_POST['codigo']) || isset($_POST['senha'])) {
     <link rel="stylesheet" type="text/css" href="../css/login.css" />
     <link rel="stylesheet" href="../css/reset.css">
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -59,14 +60,18 @@ if (isset($_POST['codigo']) || isset($_POST['senha'])) {
                     <p class="erro"><?php echo $senhaError; ?></p>
                     <p class="erro"><?php echo $codigoError; ?></p>
                     <p class="erro"><?php echo $loginError; ?></p>
+
                     <label>Código</label>
                     <input type="text" name="codigo">
                     
                     <label>Senha</label>
-                    <input type="password" name="senha">
-    
-                    <button type="submit">Entrar</button>
-                    
+                    <div class="senha">
+                        <input type="password" name="senha" id="senha">
+                        <a id="senhaEye" class="senhaEye"><i class="fa-solid fa-eye"></i></a>
+                    </div>
+
+                    <button type="submit" class="btnLogin">Entrar</button>
+
                 </form>
             </div>
         </div>
@@ -74,6 +79,20 @@ if (isset($_POST['codigo']) || isset($_POST['senha'])) {
 
         </div>
     </div>
+
+    <script>
+        document.getElementById('senhaEye').addEventListener('click', function() {
+            let passowerInput = document.getElementById('senha')
+            if (passowerInput.type == 'password') {
+                passowerInput.type = 'text'
+                this.innerHTML = '<i class="fa-solid fa-eye-slash"></i>'
+            } else {
+                passowerInput.type = 'password';
+                this.innerHTML = '<i class="fa-solid fa-eye"></i>'
+            }
+        })
+    </script>
+
 </body>
 
 </html>

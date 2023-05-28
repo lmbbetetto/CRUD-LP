@@ -1,5 +1,6 @@
 body {
-    background: #B3D4FF;
+    /* background: #B3D4FF; */
+    background: linear-gradient(120deg, #98c5ff, #B3D4FF);
 }
 
 .container {
@@ -52,11 +53,25 @@ body {
     width: 21.625rem;
     border-radius: 15px;
     border: none;
-    padding: 1rem;
+    padding: 1rem 3rem 1rem 1rem;
     margin-bottom: 1rem;
 }
 
-.campos button {
+.senha {
+    position: relative;
+}
+
+.senhaEye {
+    color: black;
+    font-size: 17px;
+    position: absolute;
+    right: 15px;
+    top: 35%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.btnLogin {
     width: 9.3125rem;
     height: 2.5625rem;
     background: #259073;
@@ -72,8 +87,7 @@ body {
     transition: 0.2s;
 }
 
-.campos button:hover {
-    /* background: #194b3e; */
+.btnLogin:hover {
     width: 14rem;
 }
 

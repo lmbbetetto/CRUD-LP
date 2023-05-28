@@ -35,11 +35,13 @@
     color: white;
 }
 
-.itens p {
+.itens a {
+    color: white;
     transition: 0.2s;
+    text-decoration: none;
 }
 
-.itens p:hover {
+.itens a:hover {
     color: #259073;
 }
 
