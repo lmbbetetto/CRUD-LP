@@ -1,0 +1,99 @@
+.containerFunc {
+    max-width: 75%;
+    margin: 4rem auto 0 auto;
+    background: #041122;
+    border-radius: 30px;
+    padding: 4rem 6rem;
+}
+
+.tabela {
+    color: white;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 2rem;
+}
+
+.tabela tr th {
+    padding: 0 0 2rem 0;
+}
+
+.cabecalho {
+    font-size: 23px;
+}
+
+.tabela tr.corpo td {
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    background: white;
+    color: black;
+    border-right: 2px solid grey;
+    border-bottom: 2px solid grey;
+}
+
+/* .tabela tr.corpo td:nth-child(1) {
+    border-radius: 15px 0 0 15px;
+} */
+
+.tabela tr.corpo td:nth-child(5) {
+    /* border-radius: 0 15px 15px 0; */
+    border: none;
+    border-bottom: 2px solid grey;
+}
+
+.funcoes i {
+    margin-left: 1rem;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.funcoes i:hover {
+    opacity: 50%;
+}
+
+.funcoes a {
+    text-decoration: none;
+    color: black;
+}
+
+.cab {
+    margin: 0 auto 3rem auto;
+    max-width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cab a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 12rem;
+    height: 2.5rem;
+    border-radius: 15px;
+    transition: 0.2s;
+    font-weight: bold;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cab a:hover {
+    opacity: 50%;
+}
+
+.cab a:first-child {
+    background: red;
+}
+
+.cab a:last-child {
+    background: #259073;
+}
+
+.containerFunc h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+}

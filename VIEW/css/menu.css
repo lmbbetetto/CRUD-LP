@@ -20,9 +20,9 @@
     width: 6rem;
     border-radius: 50%;
     background: url("../imagens/logo.png") no-repeat center;
-    background-size: 100%;
+    background-size: 130%;
 
-    border: white solid 2px;
+    border: #041122 solid 3px;
     margin-top: 3rem;
 }
 
@@ -30,7 +30,6 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-    cursor: pointer;
 
     color: white;
 }
@@ -39,6 +38,7 @@
     color: white;
     transition: 0.2s;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .itens a:hover {
@@ -55,6 +55,7 @@
     color: white;
 
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .btn:hover {

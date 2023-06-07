@@ -23,6 +23,7 @@ include('../../BLL/protect.php');
             <h2>Bem vindo ao Menu Principal, <?php echo $_SESSION['nome']; ?>.</h2>
         </div>
     </div>
+    <?php include_once "../footer/footer.php" ?>
 </body>
 
 </html>

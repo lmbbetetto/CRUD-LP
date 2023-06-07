@@ -14,7 +14,7 @@ if (isset($_POST['codigo']) || isset($_POST['senha'])) {
         $codigo = $mysqli->real_escape_string($_POST['codigo']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM login WHERE id = '$codigo' AND senha = '$senha'";
+        $sql_code = "SELECT * FROM funcionario WHERE id = '$codigo' AND senha = '$senha'";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
         $quantidade = $sql_query->num_rows;

@@ -1,5 +1,5 @@
 .fundo {
-    height: 85vh;
+    height: 60vh;
     width: 100%;
 
     display: flex;
@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-top: 4rem;
 
     height: 20rem;
     width: 25rem;

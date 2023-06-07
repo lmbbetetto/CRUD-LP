@@ -90,6 +90,7 @@
     font-size: 15px;
     font-weight: bold;
     border: none;
+    cursor: pointer;
 
     transition: 0.2s;
 }
@@ -107,6 +108,7 @@
     font-size: 15px;
     font-weight: bold;
     border: none;
+    cursor: pointer;
 
     transition: 0.2s;
 }

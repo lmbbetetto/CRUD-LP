@@ -42,7 +42,6 @@ include('../../BLL/protect.php');
                         <input type="text">
                     </div>
                 </div>
-
                 <label>Senha</label>
                 <div class="senha">
                     <input type="password" name="senha" id="senha">
@@ -51,11 +50,14 @@ include('../../BLL/protect.php');
 
                 <div class="botao">
                     <button class="btnConf">Cadastrar</button>
-                    <a href="../menuPrincipal/painel.php"><button class="btnCanc">Cancelar</button></a>
+                    <a href="./lsFuncionario.php"><button class="btnCanc">Cancelar</button></a>
                 </div>
             </form>
         </div>
     </div>
+
+    <?php include_once "../footer/footer.php" ?>
+
     <script>
         document.getElementById('senhaEye').addEventListener('click', function() {
             let passowerInput = document.getElementById('senha')

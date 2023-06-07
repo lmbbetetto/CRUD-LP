@@ -1,0 +1,60 @@
+.containerFooter {
+    width: 100%;
+    height: 18rem;
+    background: #041122;
+
+    margin-top: 7rem;
+    padding: 2rem 0 0 0;
+}
+
+.rodape {
+    max-width: 75%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logoIMG {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    background: url("../imagens/logo.png") no-repeat center;
+    background-size: 130%;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+
+    margin: 2rem 0 2rem 0;
+}
+
+.link a {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.link a:hover {
+    color: #259073;
+}
+
+.copy {
+    color: white;
+    margin: 1rem 0 0 0;
+}
+
+.copy a {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.copy a:hover {
+    color: #259073;
+}

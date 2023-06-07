@@ -25,7 +25,7 @@ include('../../BLL/protect.php');
                 <a>Produto</a>
                 <a>Cliente</a>
                 <a>Fornecedor</a>
-                <a href="../funcionario/funcionario.php">Funcionário</a>
+                <a href="../funcionario/lsFuncionario.php">Funcionário</a>
                 <a>Categoria</a>
                 <a href="../login/logout.php"><button class="btn">Sair</button></a>
             </div>
