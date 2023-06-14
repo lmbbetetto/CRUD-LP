@@ -22,13 +22,13 @@ include('../../BLL/protect.php');
 
     <div class="containerFunc">
         <div class="card">
-            <h1>Editar funcionário</h1>
+            <h1>Cadastro de fornecedor</h1>
             <form action="">
                 <label for="">Nome</label>
                 <input type="text">
 
 
-                <label for="">E-mail</label>
+                <label for="">Endereço</label>
                 <input type="text">
 
                 <div class="telCPF">
@@ -38,18 +38,13 @@ include('../../BLL/protect.php');
                     </div>
 
                     <div>
-                        <label for="">CPF</label>
+                        <label for="">CNPJ</label>
                         <input type="text">
                     </div>
                 </div>
-                <label>Senha</label>
-                <div class="senha">
-                    <input type="password" name="senha" id="senha">
-                    <a id="senhaEye" class="senhaEye"><i class="fa-solid fa-eye"></i></a>
-                </div>
 
                 <div class="botao">
-                    <button class="btnConf">Confirmar</button>
+                    <button class="btnConf">Cadastrar</button>
                     <a href="./lsFuncionario.php"><button class="btnCanc">Cancelar</button></a>
                 </div>
             </form>
@@ -57,19 +52,7 @@ include('../../BLL/protect.php');
     </div>
 
     <?php include_once "../footer/footer.php" ?>
-
-    <script>
-        document.getElementById('senhaEye').addEventListener('click', function() {
-            let passowerInput = document.getElementById('senha')
-            if (passowerInput.type == 'password') {
-                passowerInput.type = 'text'
-                this.innerHTML = '<i class="fa-solid fa-eye-slash"></i>'
-            } else {
-                passowerInput.type = 'password';
-                this.innerHTML = '<i class="fa-solid fa-eye"></i>'
-            }
-        })
-    </script>
+    
 </body>
 
 </html>

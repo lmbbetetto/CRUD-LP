@@ -22,11 +22,11 @@ include('../../BLL/protect.php');
 
             <div class="itens">
                 <a>Venda</a>
-                <a>Produto</a>
-                <a>Cliente</a>
-                <a>Fornecedor</a>
+                <a href="../produto/lsProduto.php">Produto</a>
+                <a href="../cliente/lsCliente.php">Cliente</a>
+                <a href="../fornecedor/lsFornecedor.php">Fornecedor</a>
                 <a href="../funcionario/lsFuncionario.php">Funcionário</a>
-                <a>Categoria</a>
+                <a href="../categoria/lsCategoria.php">Categoria</a>
                 <a href="../login/logout.php"><button class="btn">Sair</button></a>
             </div>
         </div>
