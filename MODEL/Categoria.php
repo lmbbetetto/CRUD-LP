@@ -6,6 +6,11 @@ class Categoria {
     private $id;
     private $descricao;
 
+    public function __construct()
+    {
+        
+    }
+
     public function getId(){
         return $this->id;
     }
