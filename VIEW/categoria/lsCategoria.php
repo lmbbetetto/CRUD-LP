@@ -1,3 +1,13 @@
+<?php
+
+use BLL\bllCategoria;
+
+include_once '../../BLL/bllCategoria.php';
+
+$bll = new \BLL\bllCategoria();
+$lsCategorias = $bll->Select();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -18,7 +28,7 @@
         <h1>Categoria de produtos</h1>
         <div class="cab">
             <a href="../menuPrincipal/painel.php">Voltar</a>
-            <a href="./addCategoria.php">Adcionar Categoria</a>
+            <a href="../categoria/addCategoria.php">Adicionar Categoria</a>
         </div>
 
         <table class="tabela">
@@ -26,13 +36,27 @@
                 <th>Categoria</th>
                 <th>Funções</th>
             </tr>
-            <tr class="corpo">
-                <td>Teste</td>
-                <td class="funcoes">
-                    <a href="./editCategoria.php"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <i class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
+
+            <?php
+            foreach ($lsCategorias as $categoria) {
+            ?>
+
+                <tr class="corpo">
+                    <td><?php echo $categoria->getDescricao(); ?></td>
+                    <td class="funcoes">
+                        <a onclick="JavaScript:location.href='editCategoria.php?id=' + 
+                        <?php echo $categoria->getId(); ?>">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a onclick="JavaScript:remover(<?php echo $categoria->getId(); ?>)">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+            <?php
+            }
+            ?>
         </table>
 
     </div>
@@ -41,3 +65,11 @@
 </body>
 
 </html>
+
+<script>
+    function remover(id){
+        if(confirm('Excluir a Categoria ' + id + '?')){
+            location.href = 'remoCategoria.php?id=' + id;
+        }
+    }
+</script>

@@ -1,6 +1,11 @@
 <?php
 
 include('../../BLL/protect.php');
+include_once '../../BLL/bllCategoria.php';
+$id = $_GET['id'];
+
+$bll = new \BLL\bllCategoria;
+$categoria = $bll->SelectId($id);
 
 ?>
 
@@ -23,13 +28,18 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Editar Categoria</h1>
-            <form action="">
-                <label for="">Categoria</label>
-                <input type="text">
+            <form action="recEditCategoria.php" method="POST">
+
+                <label for="id"></label>
+                <input type="hidden" name="txtId" value="<?php echo $categoria->getId(); ?>">
+
+                <label for="descricao">Categoria</label>
+                <input id="descricao" type="text" name="txtDescricao" value="<?php echo $categoria->getDescricao(); ?>">
 
                 <div class="botao">
-                    <button class="btnConf">Confirmar</button>
-                    <a href="./lsFuncionario.php"><button class="btnCanc">Cancelar</button></a>
+                    <button class="btnConf" type="submit">Confirmar</button>
+                    <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsCategoria.php'">
+                    Cancelar</button>
                 </div>
             </form>
         </div>
