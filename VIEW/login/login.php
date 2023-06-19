@@ -11,11 +11,11 @@ if (isset($_POST['codigo']) || isset($_POST['senha'])) {
         $senhaError = "Preencha sua senha";
     } else {
 
-        $codigo = $mysqli->real_escape_string($_POST['codigo']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
+        $usuario = trim($_POST['codigo']); 
+        $senha = trim($_POST['senha']); 
 
         $sql_code = "SELECT * FROM funcionario WHERE id = '$codigo' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+        // $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
         $quantidade = $sql_query->num_rows;
 
