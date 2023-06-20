@@ -68,7 +68,7 @@ $lsCategorias = $bll->Select();
 
 <script>
     function remover(id){
-        if(confirm('Excluir a Categoria ' + id + '?')){
+        if(confirm('Você deseja realmente excluir?')){
             location.href = 'remoCategoria.php?id=' + id;
         }
     }
