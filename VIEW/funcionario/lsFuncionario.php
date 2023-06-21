@@ -1,3 +1,13 @@
+<?php
+
+use BLL\bllFuncionario;
+
+include_once '../../BLL/bllFuncionario.php';
+
+$bll = new \BLL\bllFuncionario();
+$lsFuncionarios = $bll->Select();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -23,22 +33,37 @@
 
         <table class="tabela">
             <tr class="cabecalho">
+                <th>ID</th>
                 <th>Nome</th>
                 <th>E-mail</th>
                 <th>Telefone</th>
                 <th>CPF</th>
                 <th>Funções</th>
             </tr>
-            <tr class="corpo">
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td class="funcoes">
-                    <a href="./editFuncionario.php"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <i class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
+
+            <?php
+            foreach ($lsFuncionarios as $funcionario) {
+            ?>
+
+                <tr class="corpo">
+                    <td><?php echo $funcionario->getId(); ?></td>
+                    <td><?php echo $funcionario->getNome(); ?></td>
+                    <td><?php echo $funcionario->getEmail(); ?></td>
+                    <td><?php echo $funcionario->getTelefone(); ?></td>
+                    <td><?php echo $funcionario->getCpf(); ?></td>
+                    <td class="funcoes">
+                        <a onclick="JavaScript:location.href='editFuncionario.php?id=' + 
+                        <?php echo $funcionario->getId(); ?>">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a onclick="JavaScript:remover(<?php echo $funcionario->getId(); ?>)">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
         </table>
 
     </div>
@@ -47,3 +72,11 @@
 </body>
 
 </html>
+
+<script>
+    function remover(id){
+        if(confirm('Você deseja realmente excluir?')){
+            location.href = 'remoFuncionario.php?id=' + id;
+        }
+    }
+</script>
