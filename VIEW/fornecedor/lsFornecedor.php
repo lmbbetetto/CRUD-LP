@@ -1,3 +1,12 @@
+<?php
+
+use BLL\bllFornecedor;
+
+include_once '../../BLL/bllFornecedor.php';
+
+$bll = new \BLL\bllFornecedor;
+$lsFornecedor = $bll->Select();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -29,16 +38,28 @@
                 <th>CNPJ</th>
                 <th>Funções</th>
             </tr>
-            <tr class="corpo">
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td class="funcoes">
-                    <a href="./editFornecedor.php"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <i class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
+            <?php
+            foreach ($lsFornecedor as $fornecedor) {
+            ?>
+                <tr class="corpo">
+                    <td><?php echo $fornecedor->getNome(); ?></td>
+                    <td><?php echo $fornecedor->getTelefone(); ?></td>
+                    <td><?php echo $fornecedor->getEndereco(); ?></td>
+                    <td><?php echo $fornecedor->getCnpj(); ?></td>
+                    <td class="funcoes">
+                        <a onclick="JavaScript:location.href='editFornecedor.php?id=' + 
+                        <?php echo $fornecedor->getId(); ?>">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a onclick="JavaScript:remover(<?php echo $fornecedor->getId(); ?>)">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+            <?php
+            }
+            ?>
         </table>
 
     </div>
@@ -47,3 +68,10 @@
 </body>
 
 </html>
+<script>
+    function remover(id){
+        if(confirm('Excluir o Fornecedor? ' + id + '?')){
+            location.href = 'remoFornecedor.php?id=' + id;
+        }
+    }
+</script>
