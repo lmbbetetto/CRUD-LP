@@ -1,6 +1,11 @@
 <?php
 
 include('../../BLL/protect.php');
+include_once '../../BLL/bllFornecedor.php';
+$id = $_GET['id'];
+
+$bll = new \BLL\bllFornecedor;
+$fornecedor = $bll->SelectId($id);
 
 ?>
 
