@@ -23,7 +23,7 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Cadastro de fornecedor</h1>
-            <form action="">
+            <form method="POST" action="recAddFornecedor.php">
                 <label for="">Nome</label>
                 <input type="text" name="txtNome">
 

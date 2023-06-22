@@ -60,7 +60,7 @@ class dalFornecedor{
     }
 
     public function Update(\MODEL\Fornecedor $fornecedor){
-        $sql = "UPDATE fornecedor SET descricao=? WHERE id=?";
+        $sql = "UPDATE fornecedor SET nome,telefone,endereco,cnpj=? WHERE id=?";
 
         $pdo = Conexao::conectar(); 
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); 
