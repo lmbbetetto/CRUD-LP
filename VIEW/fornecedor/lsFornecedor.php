@@ -30,6 +30,15 @@ $lsFornecedor = $bll->Select();
             <a href="./addFornecedor.php">Adcionar Fornecedor</a>
         </div>
 
+        <div class="containerSearch">
+            <form action="" method="GET" class="search" id="">
+                <input placeholder="Buscar fornecedor" class="searchInput" id="txtBusca" name="busca">
+                <button class="searchBtn" type="submit" name="action">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+
         <table class="tabela">
             <tr class="cabecalho">
                 <th>Nome</th>

@@ -31,6 +31,15 @@ $lsCategorias = $bll->Select();
             <a href="../categoria/addCategoria.php">Adicionar Categoria</a>
         </div>
 
+        <div class="containerSearch">
+            <form action="" method="GET" class="search" id="">
+                <input placeholder="Buscar categoria" class="searchInput" id="txtBusca" name="busca">
+                <button class="searchBtn" type="submit" name="action">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+
         <table class="tabela">
             <tr class="cabecalho">
                 <th>Categoria</th>

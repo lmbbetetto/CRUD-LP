@@ -1,6 +1,11 @@
 <?php
 
 include('../../BLL/protect.php');
+include_once '../../BLL/bllFuncionario.php';
+$id = $_GET['id'];
+
+$bll = new \BLL\bllFuncionario;
+$funcionario = $bll->SelectId($id);
 
 ?>
 
@@ -23,34 +28,38 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Editar funcionário</h1>
-            <form action="">
+            <form action="recEditFuncionario.php" method="POST">
+                <label for="id"></label>
+                <input type="hidden" name="txtId" value="<?php echo $funcionario->getId(); ?>">
+
                 <label for="">Nome</label>
-                <input type="text">
+                <input type="text" id="nome" name="txtNome" value="<?php echo $funcionario->getNome(); ?>">
 
 
                 <label for="">E-mail</label>
-                <input type="text">
+                <input type="text" id="email" name="txtEmail" value="<?php echo $funcionario->getEmail(); ?>">
 
                 <div class="telCPF">
                     <div>
                         <label for="">Telefone</label>
-                        <input type="text">
+                        <input type="text" id="telefone" name="txtTelefone" value="<?php echo $funcionario->getTelefone(); ?>">
                     </div>
 
                     <div>
                         <label for="">CPF</label>
-                        <input type="text">
+                        <input type="text" id="cpf" name="txtCpf" value="<?php echo $funcionario->getCpf(); ?>">
                     </div>
                 </div>
                 <label>Senha</label>
                 <div class="senha">
-                    <input type="password" name="senha" id="senha">
+                    <input type="password" name="txtSenha" id="senha" value="<?php echo $funcionario->getSenha(); ?>">
                     <a id="senhaEye" class="senhaEye"><i class="fa-solid fa-eye"></i></a>
                 </div>
 
                 <div class="botao">
-                    <button class="btnConf">Confirmar</button>
-                    <a href="./lsFuncionario.php"><button class="btnCanc">Cancelar</button></a>
+                    <button class="btnConf" type="submit">Confirmar</button>
+                    <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsFuncionario.php'">
+                        Cancelar</button>
                 </div>
             </form>
         </div>
