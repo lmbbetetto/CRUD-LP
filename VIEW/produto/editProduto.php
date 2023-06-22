@@ -1,6 +1,11 @@
 <?php
 
 include('../../BLL/protect.php');
+include_once '../../BLL/bllProduto.php';
+$id = $_GET['id'];
+
+$bll = new \BLL\bllProduto;
+$produto = $bll->SelectId($id);
 
 ?>
 
@@ -11,7 +16,7 @@ include('../../BLL/protect.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionário</title>
+    <title>Alterar produto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/funcionario.css">
@@ -22,30 +27,37 @@ include('../../BLL/protect.php');
 
     <div class="containerFunc">
         <div class="card">
-            <h1>Editar produto</h1>
-            <form action="">
-                <label for="">Categoria</label>
-                <input type="text">
+            <h1>Alterar produto</h1>
+            <form action="recEditProduto.php" method="POST">
+
+                <label for="id"></label>
+                <input type="hidden" name="txtId" value="<?php echo $produto->getId(); ?>">
+
+                <label for="nome">Produto</label>
+                <input id="nome" type="text" name="txtNome" value="<?php echo $produto->getNome(); ?>">
+
+                <label for="idCategoria">Categoria</label>
+                <input id="idCategoria" type="text" name="txtIdCategoria" value="<?php echo $produto->getIdCategoria(); ?>">
 
 
-                <label for="">Fornecedor</label>
-                <input type="text">
+                <label for="ifFornecedor">Fornecedor</label>
+                <input id="ifFornecedor" type="text" name="txtIdFornecedor" value="<?php echo $produto->getIdFornecedor(); ?>">
 
                 <div class="telCPF">
                     <div>
-                        <label for="">Estoque</label>
-                        <input type="text">
+                        <label for="qtdeEstoque">Qtde em Estoque</label>
+                        <input id="qtdeEstoque" type="text" name="txtQtdeEstoque" value="<?php echo $produto->getQtdeEstoque(); ?>">
                     </div>
 
                     <div>
-                        <label for="">Valor</label>
-                        <input type="text">
+                        <label for="valorUnitario">Valor Unitário</label>
+                        <input id="valorUnitario" type="text" name="txtValorUnitario" value="<?php echo $produto->getValorUnitario(); ?>">
                     </div>
                 </div>
 
                 <div class="botao">
-                    <button class="btnConf">Confirmar</button>
-                    <a href="./lsFuncionario.php"><button class="btnCanc">Cancelar</button></a>
+                    <button class="btnConf" type="submit">Confirmar</button>
+                    <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsProduto.php'">Cancelar</button>
                 </div>
             </form>
         </div>
