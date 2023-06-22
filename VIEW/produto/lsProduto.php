@@ -54,6 +54,7 @@ else $lsProduto= $bll->SelectNome($busca);
 
         <table class="tabela">
             <tr class="cabecalho">
+                <th>ID</th>
                 <th>Nome</th>
                 <th>Categoria</th>
                 <th>Fornecedor</th>
@@ -67,6 +68,7 @@ else $lsProduto= $bll->SelectNome($busca);
             ?>
 
                 <tr class="corpo2">
+                    <td><?php echo $produto->getId(); ?></td>
                     <td><?php echo $produto->getNome(); ?></td>
                     <td>
                         <?php $categoria = $bllCategoria->SelectID($produto->getIdCategoria());

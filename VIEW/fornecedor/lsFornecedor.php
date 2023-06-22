@@ -41,6 +41,7 @@ $lsFornecedor = $bll->Select();
 
         <table class="tabela">
             <tr class="cabecalho">
+                <th>ID</th>
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>Endereço</th>
@@ -51,6 +52,7 @@ $lsFornecedor = $bll->Select();
             foreach ($lsFornecedor as $fornecedor) {
             ?>
                 <tr class="corpo">
+                    <td><?php echo $fornecedor->getId(); ?></td>
                     <td><?php echo $fornecedor->getNome(); ?></td>
                     <td><?php echo $fornecedor->getTelefone(); ?></td>
                     <td><?php echo $fornecedor->getEndereco(); ?></td>

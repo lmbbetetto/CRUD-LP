@@ -50,6 +50,7 @@ else $lsCategoria = $bll->SelectNome($busca);
 
         <table class="tabela">
             <tr class="cabecalho">
+                <th>ID</th>
                 <th>Categoria</th>
                 <th>Funções</th>
             </tr>
@@ -59,6 +60,7 @@ else $lsCategoria = $bll->SelectNome($busca);
             ?>
 
                 <tr class="corpo">
+                    <td><?php echo $categoria->getId(); ?></td>
                     <td><?php echo $categoria->getDescricao(); ?></td>
                     <td class="funcoes">
                         <a onclick="JavaScript:location.href='editCategoria.php?id=' + 
