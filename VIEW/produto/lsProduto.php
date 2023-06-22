@@ -5,9 +5,11 @@ use BLL\bllProduto;
 
 include_once '../../BLL/bllProduto.php';
 include_once '../../BLL/bllCategoria.php';
+include_once '../../BLL/bllFornecedor.php';
 
 $bll = new BLL\bllProduto;
 $bllCategoria = new BLL\bllCategoria;
+$bllFornecedor = new BLL\bllFornecedor;
 $lsProduto = $bll->Select();
 
 ?>
@@ -61,16 +63,20 @@ $lsProduto = $bll->Select();
                     <td><?php echo $produto->getNome(); ?></td>
                     <td>
                         <?php $categoria = $bllCategoria->SelectID($produto->getIdCategoria());
-                            echo $categoria->getDescricao();    
+                            echo $categoria->getDescricao();
                         ?>
                     </td>
-                    <td><?php echo $produto->getIdFornecedor(); ?></td>
+                    <td>
+                        <?php $fornecedor = $bllFornecedor->SelectID($produto->getIdFornecedor());
+                            echo $fornecedor->getNome();
+                        ?>
+                    </td>
                     <td><?php echo $produto->getQtdeEstoque(); ?></td>
                     <td><?php echo $produto->getValorUnitario(); ?></td>
                     <td class="funcoes">
                         <a onclick="JavaScript:location.href='editProduto.php?id=' + 
                             <?php echo $produto->getId(); ?>">
-                                <i class="fa-solid fa-pen-to-square"></i>
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                         <a onclick="JavaScript:remover(<?php echo $produto->getId(); ?>)">
                             <i class="fa-solid fa-trash"></i>
