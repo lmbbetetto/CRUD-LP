@@ -4,8 +4,6 @@ include('../../BLL/protect.php');
 include_once '../../BLL/bllFornecedor.php';
 $id = $_GET['id'];
 
-echo $id;
-
 $id = $_GET['id'];
 
 $bll = new \BLL\bllFornecedor;
@@ -59,7 +57,7 @@ $fornecedor = $bll->SelectId($id);
 
                 <div class="botao">
                     <button class="btnConf">Confirmar</button>
-                    <a href="./lsFuncionario.php"><button class="btnCanc">Cancelar</button></a>
+                    <a href="../fornecedor/lsFornecedor.php"><button class="btnCanc">Cancelar</button></a>
                 </div>
             </form>
         </div>

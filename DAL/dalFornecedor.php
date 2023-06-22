@@ -60,13 +60,13 @@ class dalFornecedor{
     }
 
     public function Update(\MODEL\Fornecedor $fornecedor){
-        $sql = "UPDATE fornecedor SET nome,telefone,endereco,cnpj=? WHERE id=?";
+        $sql = "UPDATE fornecedor SET nome=?,telefone=?,endereco=?,cnpj=? WHERE id=?";
 
         $pdo = Conexao::conectar(); 
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); 
         $query = $pdo->prepare($sql);
-        $result = $query->execute(array($fornecedor->getId(), $fornecedor->getNome(),$fornecedor->getTelefone(),
-        $fornecedor->getEndereco(),$fornecedor->getCnpj()));
+        $result = $query->execute(array($fornecedor->getNome(),$fornecedor->getTelefone(),
+        $fornecedor->getEndereco(),$fornecedor->getCnpj(), $fornecedor->getId()));
         $con = Conexao::desconectar();
         return  $result; 
     }

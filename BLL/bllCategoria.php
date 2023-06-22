@@ -19,6 +19,11 @@ class bllCategoria {
         return $dal->SelectID($id);
     }
 
+    public function SelectNome(string $descricao){
+        $dalCategoria = new dalCategoria(); 
+        return $dalCategoria->SelectNome($descricao);
+    }
+
     public function Insert (\MODEL\Categoria $categoria){
 
        $dal = new \DAL\dalCategoria(); 

@@ -7,10 +7,17 @@ include_once '../../BLL/bllProduto.php';
 include_once '../../BLL/bllCategoria.php';
 include_once '../../BLL/bllFornecedor.php';
 
+if (isset($_GET['busca']))
+    $busca = $_GET['busca'];
+else $busca = null;
+
 $bll = new BLL\bllProduto;
 $bllCategoria = new BLL\bllCategoria;
 $bllFornecedor = new BLL\bllFornecedor;
-$lsProduto = $bll->Select();
+
+if ($busca == null)
+    $lsProduto = $bll->Select();
+else $lsProduto= $bll->SelectNome($busca);
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +44,7 @@ $lsProduto = $bll->Select();
         </div>
 
         <div class="containerSearch">
-            <form action="" method="GET" class="search" id="">
+            <form action="../produto/lsProduto.php" method="GET" class="search" id="buscaProduto">
                 <input placeholder="Buscar produto" class="searchInput" id="txtBusca" name="busca">
                 <button class="searchBtn" type="submit" name="action">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -63,12 +70,12 @@ $lsProduto = $bll->Select();
                     <td><?php echo $produto->getNome(); ?></td>
                     <td>
                         <?php $categoria = $bllCategoria->SelectID($produto->getIdCategoria());
-                            echo $categoria->getDescricao();
+                        echo $categoria->getDescricao();
                         ?>
                     </td>
                     <td>
                         <?php $fornecedor = $bllFornecedor->SelectID($produto->getIdFornecedor());
-                            echo $fornecedor->getNome();
+                        echo $fornecedor->getNome();
                         ?>
                     </td>
                     <td><?php echo $produto->getQtdeEstoque(); ?></td>

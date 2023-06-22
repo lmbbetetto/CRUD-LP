@@ -19,6 +19,11 @@ class bllProduto {
         return $dal->SelectID($id);
     }
 
+    public function SelectNome(string $nome){
+        $dalProduto = new dalProduto(); 
+        return $dalProduto->SelectNome($nome);  
+    }
+
     public function Insert (\MODEL\Produto $produto){
 
        $dal = new \DAL\dalProduto(); 
