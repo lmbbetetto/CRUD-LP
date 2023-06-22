@@ -31,6 +31,13 @@ $lsFuncionarios = $bll->Select();
             <a href="./addFuncionario.php">Adcionar Funcionário</a>
         </div>
 
+        <div class="search">
+            <input placeholder="Buscar funcionário" class="searchInput">
+            <button class="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
         <table class="tabela">
             <tr class="cabecalho">
                 <th>ID</th>
@@ -74,8 +81,8 @@ $lsFuncionarios = $bll->Select();
 </html>
 
 <script>
-    function remover(id){
-        if(confirm('Você deseja realmente excluir?')){
+    function remover(id) {
+        if (confirm('Você deseja realmente excluir?')) {
             location.href = 'remoFuncionario.php?id=' + id;
         }
     }

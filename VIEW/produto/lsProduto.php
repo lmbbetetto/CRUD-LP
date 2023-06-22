@@ -21,6 +21,13 @@
             <a href="./addProduto.php">Adcionar Funcionário</a>
         </div>
 
+        <div class="search">
+            <input placeholder="Buscar produto" class="searchInput">
+            <button class="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
         <table class="tabela">
             <tr class="cabecalho">
                 <th>Nome</th>
