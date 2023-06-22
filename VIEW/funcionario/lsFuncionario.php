@@ -39,12 +39,14 @@ else $lsFuncionarios = $bll->SelectNome($busca);
             <a href="./addFuncionario.php">Adcionar Funcionário</a>
         </div>
 
-        <form action="../funcionario/lsFuncionario.php" method="GET" class="search" id="frmBuscaFuncionario">
-            <input placeholder="Buscar funcionário" class="searchInput" id="txtBusca" name="busca">
-            <button class="searchBtn" type="submit" name="action">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </form>
+        <div class="containerSearch">
+            <form action="../funcionario/lsFuncionario.php" method="GET" class="search" id="frmBuscaFuncionario">
+                <input placeholder="Buscar funcionário" class="searchInput" id="txtBusca" name="busca">
+                <button class="searchBtn" type="submit" name="action">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
 
         <table class="tabela">
             <tr class="cabecalho">

@@ -21,11 +21,13 @@
             <a href="./addCliente.php">Adcionar Clientes</a>
         </div>
 
-        <div class="search">
-            <input placeholder="Buscar cliente" class="searchInput">
-            <button class="searchBtn">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+        <div class="containerSearch">
+            <form action="" method="GET" class="search" id="">
+                <input placeholder="Buscar cliente" class="searchInput" id="txtBusca" name="busca">
+                <button class="searchBtn" type="submit" name="action">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
         </div>
 
         <table class="tabela">
