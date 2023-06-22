@@ -33,7 +33,7 @@ $lsProduto = $bll->Select();
         <h1>Produtos</h1>
         <div class="cab">
             <a href="../menuPrincipal/painel.php">Voltar</a>
-            <a href="../addProduto.php">Adcionar Produtos</a>
+            <a href="../produto/addProduto.php">Adcionar Produtos</a>
         </div>
 
         <div class="containerSearch">
