@@ -23,29 +23,30 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Cadastro de fornecedor</h1>
-            <form action="">
+            <form method="POST" action="recAddFornecedor.php">
                 <label for="">Nome</label>
-                <input type="text">
+                <input type="text" name="txtNome">
 
 
                 <label for="">Endereço</label>
-                <input type="text">
+                <input type="text" name="txtEndereco">
 
                 <div class="telCPF">
                     <div>
                         <label for="">Telefone</label>
-                        <input type="text">
+                        <input type="text" name="txtTelefone">
                     </div>
 
                     <div>
                         <label for="">CNPJ</label>
-                        <input type="text">
+                        <input type="text" name="txtCnpj">
                     </div>
                 </div>
 
                 <div class="botao">
-                    <button class="btnConf">Cadastrar</button>
-                    <a href="./lsFuncionario.php"><button class="btnCanc">Cancelar</button></a>
+                    <button class="btnConf" type="submit">Cadastrar</button>
+                    <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsFornecedor.php'">
+                        Cancelar</button>
                 </div>
             </form>
         </div>

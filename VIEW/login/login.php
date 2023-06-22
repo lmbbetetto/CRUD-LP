@@ -1,39 +1,53 @@
 <?php
-include('../../DAL/conexao.php');
+session_start();
+
+require_once '../../DAL/conexao.php';
+
+use DAL\Conexao;
 
 $codigoError = $senhaError = $loginError = "";
 
-if (isset($_POST['codigo']) || isset($_POST['senha'])) {
+// Verificar se o formulário foi enviado
+if (isset($_POST['codigo']) && isset($_POST['senha'])) {
 
+    // Validar os campos do formulário
     if (strlen($_POST['codigo']) == 0) {
         $codigoError = "Preencha seu login";
     } else if (strlen($_POST['senha']) == 0) {
         $senhaError = "Preencha sua senha";
     } else {
+        // Obter os valores do formulário
+        $codigo = $_POST['codigo'];
+        $senha = $_POST['senha'];
 
-        $codigo = $mysqli->real_escape_string($_POST['codigo']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
+        // Criar uma instância da classe de conexão
+        $conexao = Conexao::conectar();
 
-        $sql_code = "SELECT * FROM funcionario WHERE id = '$codigo' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+        // Escapar os valores para evitar SQL Injection
+        $codigo = $conexao->quote($codigo);
+        $senha = $conexao->quote($senha);
 
-        $quantidade = $sql_query->num_rows;
+        // Consulta SQL
+        $sql = "SELECT * FROM funcionario WHERE id = $codigo AND senha = $senha";
 
-        if ($quantidade == 1) {
+        // Executar a consulta
+        $result = $conexao->query($sql);
 
-            $usuario = $sql_query->fetch_assoc();
-
-            if (!isset($_SESSION)) {
-                session_start();
-            }
+        // Verificar se a consulta retornou algum resultado
+        if ($result->rowCount() == 1) {
+            $usuario = $result->fetch(PDO::FETCH_ASSOC);
 
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
 
             header("Location: ../menuPrincipal/painel.php");
+            exit();
         } else {
             $loginError = "Código ou senha incorretos";
         }
+
+        // Desconectar a conexão
+        Conexao::desconectar();
     }
 }
 ?>

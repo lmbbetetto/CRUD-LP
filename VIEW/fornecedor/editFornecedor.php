@@ -1,6 +1,15 @@
 <?php
 
 include('../../BLL/protect.php');
+include_once '../../BLL/bllFornecedor.php';
+$id = $_GET['id'];
+
+echo $id;
+
+$id = $_GET['id'];
+
+$bll = new \BLL\bllFornecedor;
+$fornecedor = $bll->SelectId($id);
 
 ?>
 
@@ -23,23 +32,28 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Editar fornecedor</h1>
-            <form action="">
-                <label for="">Nome</label>
-                <input type="text">
+            <form action="recEditFornecedor.php" method="POST">
+
+                <label for="id"></label>
+                <input type="hidden" name="txtId" value="<?php echo $fornecedor->getId(); ?>">
+
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" name="txtNome" value="<?php echo $fornecedor->getNome(); ?>">
+
+                <label for="telefone">Telefone</label>
+                <input id="telefone" type="text" name="txtTelefone" value="<?php echo $fornecedor->getTelefone(); ?>">
 
 
-                <label for="">Endereço</label>
-                <input type="text">
 
                 <div class="telCPF">
                     <div>
                         <label for="">Telefone</label>
-                        <input type="text">
+                        <input id="endereco" type="text" name="txtEndereco" value="<?php echo $fornecedor->getEndereco(); ?>">
                     </div>
 
                     <div>
                         <label for="">CNPJ</label>
-                        <input type="text">
+                        <input id="cnpj" type="text" name="txtCnpj" value="<?php echo $fornecedor->getCnpj(); ?>">
                     </div>
                 </div>
 
