@@ -19,6 +19,11 @@ class bllFuncionario {
         return $dal->SelectID($id);
     }
 
+    public function SelectNome(string $nome){
+        $funcionario = new dalFuncionario(); 
+        return $funcionario->SelectNome($nome);
+    }
+
     public function Insert (\MODEL\Funcionario $funcionario){
 
        $dal = new \DAL\dalFuncionario(); 

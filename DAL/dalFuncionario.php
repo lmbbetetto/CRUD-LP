@@ -49,6 +49,33 @@ class dalFuncionario{
    
     }
 
+    public function SelectNome(string $nome){
+
+        $sql = "SELECT * FROM funcionario WHERE nome LIKE  '%" . $nome .  "%' ORDER BY nome";
+
+        $pdo = Conexao::conectar(); 
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql); 
+                  
+        $lsfuncionario = NULL;
+        foreach($result as $linha){
+                      
+          $funcionario = new \MODEL\Funcionario();
+  
+          $funcionario->setId($linha['id']);
+          $funcionario->setNome($linha['nome']);
+          $funcionario->setSenha($linha['senha']);
+          $funcionario->setEmail($linha['email']);
+          $funcionario->setTelefone($linha['telefone']);
+          $funcionario->setCpf($linha['cpf']);
+  
+          $lsfuncionario[] = $funcionario; 
+
+        }
+        return  $lsfuncionario;
+
+      }
+
     public function Insert(\MODEL\Funcionario $funcionario){
         $con = Conexao::conectar(); 
         $sql = "INSERT INTO funcionario (nome, senha, email, telefone, cpf) 

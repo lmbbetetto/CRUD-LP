@@ -6,6 +6,14 @@ include_once '../../BLL/bllFuncionario.php';
 
 $bll = new \BLL\bllFuncionario();
 $lsFuncionarios = $bll->Select();
+
+if (isset($_GET['busca']))
+    $busca = $_GET['busca'];
+else $busca = null;
+
+if ($busca == null)
+    $lsFuncionarios = $bll->Select();
+else $lsFuncionarios = $bll->SelectNome($busca);
 ?>
 
 <!DOCTYPE html>
@@ -31,12 +39,12 @@ $lsFuncionarios = $bll->Select();
             <a href="./addFuncionario.php">Adcionar Funcionário</a>
         </div>
 
-        <div class="search">
-            <input placeholder="Buscar funcionário" class="searchInput">
-            <button class="searchBtn">
+        <form action="../funcionario/lsFuncionario.php" method="GET" class="search" id="frmBuscaFuncionario">
+            <input placeholder="Buscar funcionário" class="searchInput" id="txtBusca" name="busca">
+            <button class="searchBtn" type="submit" name="action">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-        </div>
+        </form>
 
         <table class="tabela">
             <tr class="cabecalho">
