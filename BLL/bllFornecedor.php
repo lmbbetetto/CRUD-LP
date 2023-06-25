@@ -19,6 +19,11 @@ class bllFornecedor {
         return $dal->SelectID($id);
     }
 
+    public function SelectNome(string $nome){
+        $dalFornecedor = new dalFornecedor(); 
+        return $dalFornecedor->SelectNome($nome);
+    }
+
     public function Insert (\MODEL\Fornecedor $fornecedor){
 
        $dal = new \DAL\dalFornecedor(); 

@@ -4,8 +4,15 @@ use BLL\bllCliente;
 
 include_once '../../BLL/bllCliente.php';
 
-$bll = new \BLL\bllCliente;
-$lsCliente = $bll->Select();
+if (isset($_GET['busca']))
+    $busca = $_GET['busca'];
+else $busca = null;
+
+$bll = new \BLL\bllCliente();
+
+if ($busca == null)
+    $lsCliente = $bll->Select();
+else $lsCliente = $bll->SelectNome($busca);
 ?>
 
 <!DOCTYPE html>

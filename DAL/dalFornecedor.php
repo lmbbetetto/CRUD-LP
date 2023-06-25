@@ -47,6 +47,32 @@ class dalFornecedor{
    
     }
 
+    public function SelectNome(string $nome){
+
+        $sql = "SELECT * FROM fornecedor WHERE nome LIKE  '%" . $nome .  "%' ORDER BY nome";
+
+        $pdo = Conexao::conectar(); 
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql); 
+                  
+        $lsfornecedor = NULL;
+        foreach($result as $linha){
+                      
+          $fornecedor = new \MODEL\Fornecedor();
+  
+          $fornecedor->setId($linha['id']);
+          $fornecedor->setNome($linha['nome']);
+          $fornecedor->setTelefone($linha['telefone']);
+          $fornecedor->setEndereco($linha['endereco']);
+          $fornecedor->setCnpj($linha['cnpj']);
+            
+          $lsfornecedor[] = $fornecedor; 
+
+        }
+        return  $lsfornecedor;
+
+      }
+
     public function Insert(\MODEL\Fornecedor $fornecedor){
         $con = Conexao::conectar(); 
         $sql = "INSERT INTO fornecedor

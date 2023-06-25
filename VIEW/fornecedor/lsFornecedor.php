@@ -6,6 +6,15 @@ include_once '../../BLL/bllFornecedor.php';
 
 $bll = new \BLL\bllFornecedor;
 $lsFornecedor = $bll->Select();
+
+if (isset($_GET['busca']))
+    $busca = $_GET['busca'];
+else $busca = null;
+
+if ($busca == null)
+    $lsFornecedor = $bll->Select();
+else $lsFornecedor = $bll->SelectNome($busca);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

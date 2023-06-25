@@ -16,7 +16,7 @@ $cliente = $bll->SelectId($id);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionário</title>
+    <title>Cliente</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/funcionario.css">
@@ -30,26 +30,29 @@ $cliente = $bll->SelectId($id);
             <h1>Editar cliente</h1>
             <form action="recEditCliente.php" method="POST" >
 
-           
+            
+                <label for="id"></label>
+                <input type="hidden" name="txtId" value="<?php echo $cliente->getId(); ?>">
 
-                <label for="">Nome</label>
-                <input type="hidden" name="txtNome" value="<?php echo $cliente->getNome(); ?>">
+                <label for="nome">Nome</label>
+                <input id="nome" name="txtNome" value="<?php echo $cliente->getNome(); ?>">
 
                 <div class="telCPF">
                     <div>
-                        <label for="">Telefone</label>
-                        <input type="hidden" name="txtTelefone" value="<?php echo $cliente->getTelefone(); ?>">
+                        <label for="telefone">Telefone</label>
+                        <input  id="telefone" type="text" name="txtTelefone" value="<?php echo $cliente->getTelefone(); ?>">
                     </div>
 
                     <div>
-                        <label for="">CPF</label>
-                        <input type="hidden" name="txtCpf" value="<?php echo $cliente->getCpf(); ?>">
+                        <label for="cpf">CPF</label>
+                        <input  id="cpf" type="text" name="txtCpf" value="<?php echo $cliente->getCpf(); ?>">
                     </div>
                 </div>
 
                 <div class="botao">
                 <button class="btnConf" type="submit">Confirmar</button>
-                <a href="../cliente/lsCliente.php"><button class="btnCanc">Cancelar</button></a>
+                    <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsCategoria.php'">
+                    Cancelar</button>
                 </div>
             </form>
         </div>

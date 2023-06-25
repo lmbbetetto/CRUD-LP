@@ -46,6 +46,29 @@ class dalCliente{
    
     }
 
+    public function SelectNome(string $nome)
+    {
+
+        $sql = "select * from cliente WHERE nome like  '%" . $nome .  "%' order by nome;";
+
+        $pdo = Conexao::conectar();
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql);
+
+        foreach ($result as $linha) {
+
+            $cliente = new \MODEL\Cliente;
+
+            $cliente->setId($linha['id']);
+            $cliente->setNome($linha['nome']);
+            $cliente->setTelefone($linha['telefone']);
+            $cliente->setCpf($linha['cpf']);
+
+            $lsCliente[] = $cliente;
+        }
+        return  $lsCliente;
+    }
+
     public function Insert(\MODEL\Cliente $cliente){
         $con = Conexao::conectar(); 
         $sql = "INSERT INTO cliente

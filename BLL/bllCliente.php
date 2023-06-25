@@ -42,6 +42,10 @@ class bllCliente {
         $dal->Delete($id);
        
      }
+     public function SelectNome(string $nome){
+        $dalCliente = new dalCliente(); 
+        return $dalCliente->SelectNome($nome);
+    }
 }
 
 

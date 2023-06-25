@@ -4,6 +4,7 @@
 
    $cliente = new \MODEL\Cliente(); 
    
+   $cliente->setId($_POST['txtId']);
    $cliente->setNome($_POST['txtNome']);
    $cliente->setTelefone($_POST['txtTelefone']);
    $cliente->setCpf($_POST['txtCpf']);
