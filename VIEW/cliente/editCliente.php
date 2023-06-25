@@ -1,6 +1,11 @@
 <?php
 
 include('../../BLL/protect.php');
+include_once '../../BLL/bllCliente.php';
+$id = $_GET['id'];
+
+$bll = new \BLL\bllCliente;
+$cliente = $bll->SelectId($id);
 
 ?>
 
@@ -23,25 +28,28 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Editar cliente</h1>
-            <form action="">
+            <form action="recEditCliente.php" method="POST" >
+
+           
+
                 <label for="">Nome</label>
-                <input type="text">
+                <input type="hidden" name="txtNome" value="<?php echo $cliente->getNome(); ?>">
 
                 <div class="telCPF">
                     <div>
                         <label for="">Telefone</label>
-                        <input type="text">
+                        <input type="hidden" name="txtTelefone" value="<?php echo $cliente->getTelefone(); ?>">
                     </div>
 
                     <div>
                         <label for="">CPF</label>
-                        <input type="text">
+                        <input type="hidden" name="txtCpf" value="<?php echo $cliente->getCpf(); ?>">
                     </div>
                 </div>
 
                 <div class="botao">
-                    <button class="btnConf">Confirmar</button>
-                    <a href="./lsFuncionario.php"><button class="btnCanc">Cancelar</button></a>
+                <button class="btnConf" type="submit">Confirmar</button>
+                <a href="../cliente/lsCliente.php"><button class="btnCanc">Cancelar</button></a>
                 </div>
             </form>
         </div>
