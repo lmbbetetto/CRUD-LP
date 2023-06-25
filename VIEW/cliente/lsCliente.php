@@ -1,3 +1,13 @@
+<?php
+
+use BLL\bllCliente;
+
+include_once '../../BLL/bllCliente.php';
+
+$bll = new \BLL\bllCliente;
+$lsCliente = $bll->Select();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -32,20 +42,34 @@
 
         <table class="tabela">
             <tr class="cabecalho">
+                <th>ID</th>
                 <th>Nome</th>
                 <th>Telefone</th>
                 <th>CPF</th>
                 <th>Funções</th>
             </tr>
-            <tr class="corpo">
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td class="funcoes">
-                    <a href="./editCliente.php"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <i class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
+            <?php
+            foreach ($lsCliente as $cliente) {
+                ?>
+                    <tr class="corpo">
+                        <td><?php echo $cliente->getId(); ?></td>
+                        <td><?php echo $cliente->getNome(); ?></td>
+                        <td><?php echo $cliente->getTelefone(); ?></td>
+                        <td><?php echo $cliente->getCpf(); ?></td>
+                        <td class="funcoes">
+                            <a onclick="JavaScript:location.href='editCliente.php?id=' + 
+                            <?php echo $cliente->getId(); ?>">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a onclick="JavaScript:remover(<?php echo $cliente->getId(); ?>)">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+    
+                <?php
+                }
+                ?>
         </table>
 
     </div>
@@ -54,3 +78,10 @@
 </body>
 
 </html>
+<script>
+    function remover(id){
+        if(confirm('Excluir o Fornecedor? ' + id + '?')){
+            location.href = 'remoCliente.php?id=' + id;
+        }
+    }
+</script>
