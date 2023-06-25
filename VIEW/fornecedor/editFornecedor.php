@@ -45,12 +45,12 @@ $fornecedor = $bll->SelectId($id);
 
                 <div class="telCPF">
                     <div>
-                        <label for="">Telefone</label>
+                        <label for="endereco">Telefone</label>
                         <input id="endereco" type="text" name="txtEndereco" value="<?php echo $fornecedor->getEndereco(); ?>">
                     </div>
 
                     <div>
-                        <label for="">CNPJ</label>
+                        <label for="cnpj">CNPJ</label>
                         <input id="cnpj" type="text" name="txtCnpj" value="<?php echo $fornecedor->getCnpj(); ?>">
                     </div>
                 </div>
