@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Maio-2023 às 16:23
+-- Tempo de geração: 27-Jun-2023 às 01:38
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.0.25
 
@@ -41,7 +41,7 @@ CREATE TABLE `categoria` (
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
-  `telefone` varchar(11) NOT NULL,
+  `telefone` varchar(15) NOT NULL,
   `cpf` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
@@ -54,7 +54,7 @@ CREATE TABLE `cliente` (
 CREATE TABLE `fornecedor` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
-  `telefone` varchar(11) NOT NULL,
+  `telefone` varchar(15) NOT NULL,
   `endereco` varchar(50) NOT NULL,
   `cnpj` varchar(18) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
@@ -70,7 +70,7 @@ CREATE TABLE `funcionario` (
   `nome` varchar(50) NOT NULL,
   `senha` varchar(32) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `telefone` varchar(11) NOT NULL,
+  `telefone` varchar(15) NOT NULL,
   `cpf` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
@@ -96,11 +96,10 @@ CREATE TABLE `produto` (
 --
 
 CREATE TABLE `produto_venda` (
-  `venda` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `produto` int(11) NOT NULL,
   `qtde_vendida` int(11) NOT NULL,
-  `valor` float NOT NULL,
-  `data_venda` date NOT NULL
+  `valor` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 -- --------------------------------------------------------
@@ -112,7 +111,11 @@ CREATE TABLE `produto_venda` (
 CREATE TABLE `venda` (
   `id` int(11) NOT NULL,
   `funcionario` int(11) NOT NULL,
-  `cliente` int(11) NOT NULL
+  `cliente` int(11) NOT NULL,
+  `produto` int(11) NOT NULL,
+  `qtde_vendida` int(11) NOT NULL,
+  `valor` float NOT NULL,
+  `data_venda` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
@@ -156,7 +159,7 @@ ALTER TABLE `produto`
 --
 ALTER TABLE `produto_venda`
   ADD KEY `produto_venda_venda` (`produto`),
-  ADD KEY `produto_venda_produto` (`venda`);
+  ADD KEY `produto_venda_produto` (`id`);
 
 --
 -- Índices para tabela `venda`
@@ -221,7 +224,7 @@ ALTER TABLE `produto`
 -- Limitadores para a tabela `produto_venda`
 --
 ALTER TABLE `produto_venda`
-  ADD CONSTRAINT `produto_venda_produto` FOREIGN KEY (`venda`) REFERENCES `venda` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `produto_venda_produto` FOREIGN KEY (`id`) REFERENCES `venda` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `produto_venda_venda` FOREIGN KEY (`produto`) REFERENCES `produto` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
