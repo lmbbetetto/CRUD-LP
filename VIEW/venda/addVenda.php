@@ -27,36 +27,31 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Nova Venda</h1>
-            <form id="validacaoProduto" action="recAddProduto.php" method="POST">
+            <form id="validacaoVenda" action="recAddVenda.php" method="POST">
 
                 <div class="telCPF">
                     <div>
-                        <label for="nome">ID do Produto</label>
-                        <input id="nome" type="text" name="txtNome">
-                    </div>
-
-                    <div>
-                        <label for="nome">Produto</label>
-                        <input id="nome" type="text" name="txtNome">
+                        <label for="idProduto">ID do Produto</label>
+                        <input id="idProduto" type="text" name="txtIdProduto">
                     </div>
                 </div>
 
                 <div class="telCPF">
                     <div>
-                        <label for="idCategoria">Categoria</label>
-                        <input id="idCategoria" type="text" name="txtIdCategoria">
+                        <label for="idFuncionario">ID do Funcionario</label>
+                        <input id="idFuncionario" type="text" name="txtIdFuncionario">
                     </div>
 
                     <div>
-                        <label for="idFornecedor">Fornecedor</label>
-                        <input id="idFornecedor" type="text" name="txtIdFornecedor">
+                        <label for="idCliente">ID do Cliente</label>
+                        <input id="idCliente" type="text" name="txtIdCliente">
                     </div>
                 </div>
 
                 <div class="telCPF">
                     <div>
-                        <label for="qtdeEstoque">Quantidade</label>
-                        <input id="qtdeEstoque" type="text" name="txtQtdeEstoque">
+                        <label for="qtdeVendida">Quantidade</label>
+                        <input id="qtdeVendida" type="text" name="txtQtdeVendida">
                     </div>
 
                     <div>
@@ -65,8 +60,8 @@ include('../../BLL/protect.php');
                     </div>
                 </div>
 
-                <label for="valorUnitario">Valor Total</label>
-                <input id="valorUnitario" type="text" name="txtValorUnitario">
+                <label for="dataVenda">Data da Venda</label>
+                <input id="dataVenda" type="date" name="txtDataVenda">
 
                 <div class="botao">
                     <button class="btnConf" type="submit">Cadastrar</button>
@@ -78,7 +73,7 @@ include('../../BLL/protect.php');
 
     <?php include_once "../footer/footer.php" ?>
 
-    <script src="../validacao/validacaoProduto.js">
+    <script src="../validacao/validacaoVenda.js">
         document.getElementById('senhaEye').addEventListener('click', function() {
             let passowerInput = document.getElementById('senha')
             if (passowerInput.type == 'password') {

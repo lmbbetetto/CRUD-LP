@@ -1,6 +1,12 @@
 <?php
 
 include('../../BLL/protect.php');
+include_once '../../BLL/bllVenda.php';
+
+$id = $_GET['id'];
+
+$bll = new BLL\bllVenda;
+$venda = $bll->SelectID($id);
 
 ?>
 
@@ -11,7 +17,7 @@ include('../../BLL/protect.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar produto</title>
+    <title>Editar venda</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/funcionario.css">
@@ -27,49 +33,47 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Editar Venda</h1>
-            <form id="validacaoProduto" action="recAddProduto.php" method="POST">
+            <form id="validacaoVenda" action="recEditVenda.php" method="POST">
 
-                <div class="telCPF">
-                    <div>
-                        <label for="nome">ID do Produto</label>
-                        <input id="nome" type="text" name="txtNome">
-                    </div>
+            <label for="id"></label>
+            <input id="id" type="hidden" name="txtId" value="<?php echo $venda->getId(); ?>">
 
+            <div class="telCPF">
                     <div>
-                        <label for="nome">Produto</label>
-                        <input id="nome" type="text" name="txtNome">
+                        <label for="idProduto">ID do Produto</label>
+                        <input id="idProduto" type="text" name="txtIdProduto" value="<?php echo $venda->getIdProduto(); ?>">
                     </div>
                 </div>
 
                 <div class="telCPF">
                     <div>
-                        <label for="idCategoria">Categoria</label>
-                        <input id="idCategoria" type="text" name="txtIdCategoria">
+                        <label for="idFuncionario">ID do Funcionario</label>
+                        <input id="idFuncionario" type="text" name="txtIdFuncionario" value="<?php echo $venda->getIdFuncionario(); ?>">
                     </div>
 
                     <div>
-                        <label for="idFornecedor">Fornecedor</label>
-                        <input id="idFornecedor" type="text" name="txtIdFornecedor">
+                        <label for="idCliente">ID do Cliente</label>
+                        <input id="idCliente" type="text" name="txtIdCliente" value="<?php echo $venda->getIdCliente(); ?>">
                     </div>
                 </div>
 
                 <div class="telCPF">
                     <div>
-                        <label for="qtdeEstoque">Quantidade</label>
-                        <input id="qtdeEstoque" type="text" name="txtQtdeEstoque">
+                        <label for="qtdeVendida">Quantidade</label>
+                        <input id="qtdeVendida" type="text" name="txtQtdeVendida" value="<?php echo $venda->getQtdeVendida(); ?>">
                     </div>
 
                     <div>
                         <label for="valorUnitario">Valor Unitário</label>
-                        <input id="valorUnitario" type="text" name="txtValorUnitario">
+                        <input id="valorUnitario" type="text" name="txtValorUnitario" value="<?php echo ($venda->getValorTotal())/$venda->getQtdeVendida(); ?>">
                     </div>
                 </div>
 
-                <label for="valorUnitario">Valor Total</label>
-                <input id="valorUnitario" type="text" name="txtValorUnitario">
+                <label for="dataVenda">Data da Venda</label>
+                <input id="dataVenda" type="date" name="txtDataVenda" value="<?php echo $venda->getDataVenda(); ?>">
 
                 <div class="botao">
-                    <button class="btnConf" type="submit">Cadastrar</button>
+                    <button class="btnConf" type="submit">Confirmar</button>
                     <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsVenda.php'">Cancelar</button>
                 </div>
             </form>
@@ -78,18 +82,7 @@ include('../../BLL/protect.php');
 
     <?php include_once "../footer/footer.php" ?>
 
-    <script src="../validacao/validacaoProduto.js">
-        document.getElementById('senhaEye').addEventListener('click', function() {
-            let passowerInput = document.getElementById('senha')
-            if (passowerInput.type == 'password') {
-                passowerInput.type = 'text'
-                this.innerHTML = '<i class="fa-solid fa-eye-slash"></i>'
-            } else {
-                passowerInput.type = 'password';
-                this.innerHTML = '<i class="fa-solid fa-eye"></i>'
-            }
-        })
-    </script>
+    <script src="../validacao/validacaoVenda.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,27 @@
+<?php
+
+use BLL\bllVenda;
+
+include_once '../../BLL/bllVenda.php';
+include_once '../../BLL/bllProduto.php';
+include_once '../../BLL/bllFuncionario.php';
+include_once '../../BLL/bllCliente.php';
+
+if (isset($_GET['busca']))
+    $busca = $_GET['busca'];
+else $busca = null;
+
+$bll = new BLL\bllVenda;
+$bllProduto = new BLL\bllProduto;
+$bllFuncionario = new BLL\bllFuncionario;
+$bllCliente = new BLL\bllCliente;
+
+if ($busca == null)
+    $lsVenda = $bll->Select();
+else
+    $lsVenda = $bll->SelectDataVenda($busca);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -22,8 +46,8 @@
         </div>
 
         <div class="containerSearch">
-            <form action="../produto/lsProduto.php" method="GET" class="search" id="buscaProduto">
-                <input placeholder="Buscar produto" class="searchInput" id="txtBusca" name="busca">
+            <form action="../venda/lsVenda.php" method="GET" class="search" id="buscaVenda">
+                <input placeholder="Buscar Data da Venda" class="searchInput" id="txtBusca" name="busca">
                 <button class="searchBtn" type="submit" name="action">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
@@ -34,29 +58,56 @@
             <tr class="cabecalho">
                 <th>ID</th>
                 <th>Produto</th>
-                <th>Categoria</th>
-                <th>Fornecedor</th>
+                <th>Funcionario</th>
+                <th>Cliente</th>
+                <th>Data</th>
                 <th>Qtde Vendida</th>
                 <th>Valor</th>
                 <th>Funções</th>
             </tr>
 
-            <tr class="corpo2">
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td>Teste</td>
-                <td class="funcoes">
-                    <a href="./editVenda.php">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    <a>
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
+            <?php
+            foreach ($lsVenda as $venda) {
+            ?>
+
+                <tr class="corpo2">
+                    <td><?php echo $venda->getId(); ?></td>
+                    <td>
+                        <?php 
+                            $produto = $bllProduto->SelectID($venda->getIdProduto());
+                            echo $produto->getNome();
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            $funcionario = $bllFuncionario->SelectID($venda->getIdFuncionario());
+                            echo $funcionario->getNome();
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                            $cliente = $bllCliente->SelectID($venda->getIdCliente());
+                            echo $cliente->getNome();
+                        ?>
+                    </td>
+                    <td><?php echo $venda->getDataVenda(); ?></td>
+                    <td><?php echo $venda->getQtdeVendida(); ?></td>
+                    <td><?php echo "R$ " . $venda->getValorTotal(); ?></td>
+                    <td class="funcoes">
+                        <a onclick="JavaScript:location.href='editVenda.php?id=' + 
+                        <?php echo $venda->getId(); ?>">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a onclick="JavaScript:remover(<?php echo $venda->getId(); ?>)">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+            <?php
+            }
+            ?>
+
         </table>
 
     </div>
@@ -65,3 +116,11 @@
 </body>
 
 </html>
+
+<script>
+    function remover(id) {
+        if (confirm('Excluir a Venda ' + id + '?')) {
+            location.href = 'remoVenda.php?id=' + id;
+        }
+    }
+</script>

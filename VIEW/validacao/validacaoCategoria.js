@@ -1,5 +1,5 @@
 jQuery.validator.addMethod('lettersonly', function(value, element) {
-    return this.optional(element) || /^[a-z]+$/i.test(value);
+    return this.optional(element) || /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/i.test(value);
   }, "Digite apenas letras");
 
 $("#validacaoCategoria").validate({
@@ -13,7 +13,7 @@ $("#validacaoCategoria").validate({
     messages: {
         txtDescricao: {
             required: "Digite uma descrição válida",
-            lettersonly:"Somente letras são permitidas na descrição",
+            lettersonly:"Digite somente letras",
             rangelength: jQuery.validator.format("A descrição deve ter de 3 a 30 letras")
         }
     }
