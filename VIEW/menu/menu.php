@@ -21,7 +21,7 @@ include('../../BLL/protect.php');
             <a href="../menuPrincipal/painel.php"><div class="logo"></div></a>
 
             <div class="itens">
-                <a>Venda</a>
+                <a href="../venda/lsVenda.php">Venda</a>
                 <a href="../produto/lsProduto.php">Produto</a>
                 <a href="../cliente/lsCliente.php">Cliente</a>
                 <a href="../fornecedor/lsFornecedor.php">Fornecedor</a>

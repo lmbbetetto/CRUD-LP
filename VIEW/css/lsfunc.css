@@ -31,8 +31,7 @@
     border-bottom: 2px solid grey;
 }
 
-.tabela tr.corpo td:nth-child(6) {
-    /* border-radius: 0 15px 15px 0; */
+.tabela tr.corpo td:last-child {
     border: none;
     border-bottom: 2px solid grey;
 }
@@ -47,8 +46,7 @@
     border-bottom: 2px solid grey;
 }
 
-.tabela tr.corpo2 td:nth-child(6) {
-    /* border-radius: 0 15px 15px 0; */
+.tabela tr.corpo2 td:last-child {
     border: none;
     border-bottom: 2px solid grey;
 }
