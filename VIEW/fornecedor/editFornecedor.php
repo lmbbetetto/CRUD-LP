@@ -22,6 +22,8 @@ $fornecedor = $bll->SelectId($id);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/funcionario.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
 </head>
 
 <body>
@@ -30,7 +32,7 @@ $fornecedor = $bll->SelectId($id);
     <div class="containerFunc">
         <div class="card">
             <h1>Editar fornecedor</h1>
-            <form action="recEditFornecedor.php" method="POST">
+            <form id="validacaoFornecedor" action="recEditFornecedor.php" method="POST">
 
                 <label for="id"></label>
                 <input type="hidden" name="txtId" value="<?php echo $fornecedor->getId(); ?>">
@@ -57,13 +59,15 @@ $fornecedor = $bll->SelectId($id);
 
                 <div class="botao">
                     <button class="btnConf">Confirmar</button>
-                    <a href="../fornecedor/lsFornecedor.php"><button class="btnCanc">Cancelar</button></a>
+                    <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsFornecedor.php'">
+                    Cancelar</button>
                 </div>
             </form>
         </div>
     </div>
 
     <?php include_once "../footer/footer.php" ?>
+    <script src="../validacao/validacaoFornecedor.js"></script>
 
 </body>
 
