@@ -38,12 +38,8 @@ $venda = $bll->SelectID($id);
                 <label for="id"></label>
                 <input id="id" type="hidden" name="txtId" value="<?php echo $venda->getId(); ?>">
 
-                <div class="telCPF">
-                    <div>
-                        <label for="idProduto">ID do Produto</label>
-                        <input id="idProduto" type="text" name="txtIdProduto" value="<?php echo $venda->getIdProduto(); ?>">
-                    </div>
-                </div>
+                <label for="idProduto">ID do Produto</label>
+                <input id="idProduto" type="text" name="txtIdProduto" value="<?php echo $venda->getIdProduto(); ?>">
 
                 <div class="telCPF">
                     <div>
@@ -57,20 +53,8 @@ $venda = $bll->SelectID($id);
                     </div>
                 </div>
 
-                <div class="telCPF">
-                    <div>
-                        <label for="qtdeVendida">Quantidade</label>
-                        <input id="qtdeVendida" type="text" name="txtQtdeVendida" value="<?php echo $venda->getQtdeVendida(); ?>">
-                    </div>
-
-                    <div>
-                        <label for="valorUnitario"></label>
-                        <input id="valorUnitario" type="hidden" name="txtValorUnitario" value="
-                            <?php
-                            echo ($venda->getValorTotal()) / $venda->getQtdeVendida();
-                            ?>">
-                    </div>
-                </div>
+                <label for="qtdeVendida">Quantidade</label>
+                <input id="qtdeVendida" type="text" name="txtQtdeVendida" value="<?php echo $venda->getQtdeVendida(); ?>">
 
                 <label for="dataVenda">Data da Venda</label>
                 <input id="dataVenda" type="date" name="txtDataVenda" value="<?php echo $venda->getDataVenda(); ?>">
