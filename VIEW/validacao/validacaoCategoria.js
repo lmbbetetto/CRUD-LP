@@ -14,7 +14,7 @@ $("#validacaoCategoria").validate({
         txtDescricao: {
             required: "Digite uma descrição válida",
             lettersonly:"Digite somente letras",
-            rangelength: jQuery.validator.format("A descrição deve ter de 3 a 30 letras")
+            rangelength: jQuery.validator.format("Digite uma descrição com 3 a 30 letras")
         }
     }
 });

@@ -35,10 +35,10 @@ $venda = $bll->SelectID($id);
             <h1>Editar Venda</h1>
             <form id="validacaoVenda" action="recEditVenda.php" method="POST">
 
-            <label for="id"></label>
-            <input id="id" type="hidden" name="txtId" value="<?php echo $venda->getId(); ?>">
+                <label for="id"></label>
+                <input id="id" type="hidden" name="txtId" value="<?php echo $venda->getId(); ?>">
 
-            <div class="telCPF">
+                <div class="telCPF">
                     <div>
                         <label for="idProduto">ID do Produto</label>
                         <input id="idProduto" type="text" name="txtIdProduto" value="<?php echo $venda->getIdProduto(); ?>">
@@ -64,8 +64,11 @@ $venda = $bll->SelectID($id);
                     </div>
 
                     <div>
-                        <label for="valorUnitario">Valor Unitário</label>
-                        <input id="valorUnitario" type="text" name="txtValorUnitario" value="<?php echo ($venda->getValorTotal())/$venda->getQtdeVendida(); ?>">
+                        <label for="valorUnitario"></label>
+                        <input id="valorUnitario" type="hidden" name="txtValorUnitario" value="
+                            <?php
+                            echo ($venda->getValorTotal()) / $venda->getQtdeVendida();
+                            ?>">
                     </div>
                 </div>
 
