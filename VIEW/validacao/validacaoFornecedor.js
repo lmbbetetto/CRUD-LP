@@ -4,7 +4,7 @@ jQuery.validator.addMethod('lettersonly', function(value, element) {
 
 
   jQuery.validator.addMethod('endereco', function(value, element) {
-    return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9\u00f1\u00d1 ]*$/g.test(value);
+    return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9°\u00f1\u00d1 ]*$/g.test(value);
   }, "Digite apenas letras e numeros");
 
   jQuery.validator.addMethod('telefone', function (value, element) {
@@ -95,9 +95,11 @@ $("#validacaoFornecedor").validate({
             required: true,
             telefone: true,
         },
-            txtEndereco: {
+
+        txtEndereco: {
             required: true,
             endereco: true,
+            rangelength: [3,50]
         },
 
         txtCnpj: {
@@ -108,9 +110,21 @@ $("#validacaoFornecedor").validate({
     },
     messages: {
 
+        txtNome: {
+            required: "Digite um nome válido",
+            rangelength: jQuery.validator.format("Digite um nome com 3 a 50 letras")
+        },
+        txtTelefone: {
+            required: "Digite um telefone válido",
+        },
+
+        txtEndereco: {
+            required: "Digite um endereço válido",
+            rangelength: jQuery.validator.format("Digite um endereço com 3 a 50 letras")
+        },
+
         txtCnpj: {
-            required: "Digite uma quantidade válida",
-            number: "Digite apenas números",
+            required: "Digite um CNPJ válido",
         },
     }
 });
