@@ -25,7 +25,7 @@ if (isset($_POST['codigo']) && isset($_POST['senha'])) {
 
         // Escapar os valores para evitar SQL Injection
         $codigo = $conexao->quote($codigo);
-        $senha = $conexao->quote($senha);
+        $senha = $conexao->quote(md5($senha));
 
         // Consulta SQL
         $sql = "SELECT * FROM funcionario WHERE id = $codigo AND senha = $senha";

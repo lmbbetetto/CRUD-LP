@@ -20,6 +20,9 @@ $funcionario = $bll->SelectId($id);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/funcionario.css">
+
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
 </head>
 
 <body>
@@ -28,7 +31,7 @@ $funcionario = $bll->SelectId($id);
     <div class="containerFunc">
         <div class="card">
             <h1>Editar funcionário</h1>
-            <form action="recEditFuncionario.php" method="POST">
+            <form id="validacaoFuncionario" action="recEditFuncionario.php" method="POST">
                 <label for="id"></label>
                 <input type="hidden" name="txtId" value="<?php echo $funcionario->getId(); ?>">
 
@@ -67,7 +70,7 @@ $funcionario = $bll->SelectId($id);
 
     <?php include_once "../footer/footer.php" ?>
 
-    <script>
+    <script src="../validacao/validacaoFuncionario.js">
         document.getElementById('senhaEye').addEventListener('click', function() {
             let passowerInput = document.getElementById('senha')
             if (passowerInput.type == 'password') {

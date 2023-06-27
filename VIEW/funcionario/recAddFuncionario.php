@@ -5,7 +5,7 @@
    $funcionario = new \MODEL\Funcionario(); 
    
    $funcionario->setNome($_POST['txtNome']);
-   $funcionario->setSenha($_POST['txtSenha']);
+   $funcionario->setSenha(md5($_POST['txtSenha']));
    $funcionario->setEmail($_POST['txtEmail']);
    $funcionario->setTelefone($_POST['txtTelefone']);
    $funcionario->setCpf($_POST['txtCpf']);

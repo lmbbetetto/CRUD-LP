@@ -9,7 +9,7 @@
    $funcionario->setEmail($_POST['txtEmail']);
    $funcionario->setTelefone($_POST['txtTelefone']);
    $funcionario->setCpf($_POST['txtCpf']);
-   $funcionario->setSenha($_POST['txtSenha']);
+   $funcionario->setSenha(md5($_POST['txtSenha']));
 
    $bll = new \BLL\bllFuncionario(); 
    $bll->Update($funcionario); 
