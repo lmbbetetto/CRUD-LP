@@ -1,12 +1,12 @@
-jQuery.validator.addMethod('name', function(value, element) {
-    return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9\u00f1\u00d1 ]*$/g.test(value);
-  }, "Digite um produto válido");
+jQuery.validator.addMethod('lettersonly', function(value, element) {
+    return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9\u00f1\u00d1 ]*$/.test(value);
+  }, "Digite apenas letras");
 
 $("#validacaoProduto").validate({
     rules: {
         txtNome: {
             required: true,
-            name:true,
+            lettersonly:true,
             rangelength: [3,50]
         },
 
@@ -39,7 +39,7 @@ $("#validacaoProduto").validate({
         txtNome: {
             required: "Digite um produto válido",
             name:"Digite um produto válido",
-            rangelength: jQuery.validator.format("Digite um produto com 3 a 50 letras")
+            rangelength: jQuery.validator.format("Digite um produto com 3 a 50 caracteres")
         },
 
         txtIdCategoria: {
@@ -64,6 +64,6 @@ $("#validacaoProduto").validate({
             required: "Digite um preço válido",
             number: "Digite apenas números",
             min: "Digite um número maior ou igual a 0.01"
-        }
+        },
     }
 });
