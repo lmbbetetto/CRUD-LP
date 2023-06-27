@@ -28,9 +28,9 @@ $cliente = $bll->SelectId($id);
     <div class="containerFunc">
         <div class="card">
             <h1>Editar cliente</h1>
-            <form action="recEditCliente.php" method="POST" >
+            <form action="recEditCliente.php" method="POST">
 
-            
+
                 <label for="id"></label>
                 <input type="hidden" name="txtId" value="<?php echo $cliente->getId(); ?>">
 
@@ -40,19 +40,19 @@ $cliente = $bll->SelectId($id);
                 <div class="telCPF">
                     <div>
                         <label for="telefone">Telefone</label>
-                        <input  id="telefone" type="text" name="txtTelefone" value="<?php echo $cliente->getTelefone(); ?>">
+                        <input id="telefone" type="text" name="txtTelefone" value="<?php echo $cliente->getTelefone(); ?>">
                     </div>
 
                     <div>
                         <label for="cpf">CPF</label>
-                        <input  id="cpf" type="text" name="txtCpf" value="<?php echo $cliente->getCpf(); ?>">
+                        <input id="cpf" type="text" name="txtCpf" value="<?php echo $cliente->getCpf(); ?>">
                     </div>
                 </div>
 
                 <div class="botao">
-                <button class="btnConf" type="submit">Confirmar</button>
-                    <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsCategoria.php'">
-                    Cancelar</button>
+                    <button class="btnConf" type="submit">Confirmar</button>
+                    <button class="btnCanc" type="button" onclick="JavaScript:location.href='lsCliente.php'">
+                        Cancelar</button>
                 </div>
             </form>
         </div>

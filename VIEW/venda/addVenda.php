@@ -1,6 +1,7 @@
 <?php
 
 include('../../BLL/protect.php');
+include_once '../../BLL/bllProduto.php';
 
 ?>
 
@@ -55,8 +56,11 @@ include('../../BLL/protect.php');
                     </div>
 
                     <div>
-                        <label for="valorUnitario">Valor Unitário</label>
-                        <input id="valorUnitario" type="text" name="txtValorUnitario">
+                        <label for="valorUnitario"></label>
+                        <input id="valorUnitario" type="hidden" name="txtValorUnitario" value="
+                            <?php 
+                            
+                            ?>">
                     </div>
                 </div>
 
