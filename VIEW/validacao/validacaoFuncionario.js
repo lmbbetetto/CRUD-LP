@@ -87,7 +87,7 @@ $("#validacaoFuncionario").validate({
 
         txtSenha: {
             required: "Campo Obrigatório",
-            rangelength: "Tamanho obrigatório: entre 6 e 15 caracteres",
+            rangelength: jQuery.validator.format("Digite uma senha com 3 a 50 letras")
         },
     }
 });

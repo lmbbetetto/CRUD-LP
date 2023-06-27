@@ -28,7 +28,7 @@ jQuery.validator.addMethod('lettersonly', function(value, element) {
 
 jQuery.validator.addMethod('cpf', function(value, element) {
     return this.optional(element) || /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2})$/.test(value);
-  }, "Digite apenas letras");
+  }, "Digite um CPF válido");
 
 
 $("#ValidacaoCliente").validate({
@@ -51,9 +51,16 @@ $("#ValidacaoCliente").validate({
     },
     messages: {
 
+        txtNome: {
+            required: "Digite um nome válido",
+            rangelength: jQuery.validator.format("Digite um nome com 3 a 50 letras")
+        },
+        txtTelefone: {
+            required: "Digite um telefone válido",
+        },
+
         txtCpf: {
-            required: "Digite uma quantidade válida",
-            number: "Digite apenas números",
+            required: "Digite um CPF válido",
         },
     }
 });
