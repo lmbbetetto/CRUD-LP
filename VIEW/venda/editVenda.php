@@ -38,6 +38,12 @@ $venda = $bll->SelectID($id);
                 <label for="id"></label>
                 <input id="id" type="hidden" name="txtId" value="<?php echo $venda->getId(); ?>">
 
+                <label for="valorUnitario"></label>
+                <input id="valorUnitario" type="hidden" name="txtValorUnitario" value="
+                        <?php
+                            echo ($venda->getValorTotal()) / $venda->getQtdeVendida();
+                        ?>">
+
                 <label for="idProduto">ID do Produto</label>
                 <input id="idProduto" type="text" name="txtIdProduto" value="<?php echo $venda->getIdProduto(); ?>">
 

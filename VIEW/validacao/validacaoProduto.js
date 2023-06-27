@@ -1,12 +1,12 @@
-jQuery.validator.addMethod('lettersonly', function(value, element) {
-    return this.optional(element) || /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/i.test(value);
-  }, "Digite apenas letras");
+jQuery.validator.addMethod('name', function(value, element) {
+    return this.optional(element) || /^[a-zA-ZÀ-ÿ0-9\u00f1\u00d1 ]*$/g.test(value);
+  }, "Digite um produto válido");
 
 $("#validacaoProduto").validate({
     rules: {
         txtNome: {
             required: true,
-            lettersonly:true,
+            name:true,
             rangelength: [3,50]
         },
 
@@ -38,7 +38,7 @@ $("#validacaoProduto").validate({
     messages: {
         txtNome: {
             required: "Digite um produto válido",
-            lettersonly:"Digite apenas letras",
+            name:"Digite um produto válido",
             rangelength: jQuery.validator.format("Digite um produto com 3 a 50 letras")
         },
 
