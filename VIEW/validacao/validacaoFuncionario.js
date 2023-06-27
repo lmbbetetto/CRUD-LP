@@ -35,7 +35,7 @@ jQuery.validator.addMethod('lettersonly', function(value, element) {
 
 jQuery.validator.addMethod('cpf', function(value, element) {
     return this.optional(element) || /^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2})$/.test(value);
-  }, "Digite apenas letras");
+  }, "CPF inválido");
 
 
 $("#validacaoFuncionario").validate({
@@ -69,11 +69,24 @@ $("#validacaoFuncionario").validate({
 
     },
     messages: {
+        txtNome: {
+            required: "Campo Obrigatório",
+        },
+
+        txtEmail: {
+            required: "Campo Obrigatório",
+        },
+
+        txtTelefone: {
+            required: "Campo Obrigatório",
+        },
 
         txtCpf: {
-            required: "Digite uma quantidade válida",
-            number: "Digite apenas números",
-            min: "Digite apenas números maiores que 0",
+            required: "Campo Obrigatório",
+        },
+
+        txtSenha: {
+            required: "Campo Obrigatório",
         },
     }
 });

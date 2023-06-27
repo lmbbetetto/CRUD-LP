@@ -53,11 +53,11 @@ $funcionario = $bll->SelectId($id);
                         <input type="text" id="cpf" name="txtCpf" value="<?php echo $funcionario->getCpf(); ?>">
                     </div>
                 </div>
-                <label>Senha</label>
+                <!-- <label>Senha</label>
                 <div class="senha">
                     <input type="password" name="txtSenha" id="senha" value="<?php echo $funcionario->getSenha(); ?>">
                     <a id="senhaEye" class="senhaEye"><i class="fa-solid fa-eye"></i></a>
-                </div>
+                </div> -->
 
                 <div class="botao">
                     <button class="btnConf" type="submit">Confirmar</button>
