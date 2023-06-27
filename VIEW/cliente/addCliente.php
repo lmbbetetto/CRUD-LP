@@ -15,6 +15,9 @@ include('../../BLL/protect.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/funcionario.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+
 </head>
 
 <body>
@@ -23,7 +26,7 @@ include('../../BLL/protect.php');
     <div class="containerFunc">
         <div class="card">
             <h1>Cadastro de cliente</h1>
-            <form method="POST" action="recAddCliente.php">
+            <form id="ValidacaoCliente" method="POST" action="recAddCliente.php">
 
                 <label for="">Nome</label>
                 <input type="text" name="txtNome">
@@ -50,6 +53,7 @@ include('../../BLL/protect.php');
     </div>
 
     <?php include_once "../footer/footer.php" ?>
+    <script src="../validacao/validacaoCliente.js"></script>
 
 </body>
 

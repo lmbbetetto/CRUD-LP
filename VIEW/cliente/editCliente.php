@@ -20,6 +20,9 @@ $cliente = $bll->SelectId($id);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/funcionario.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+
 </head>
 
 <body>
@@ -28,7 +31,7 @@ $cliente = $bll->SelectId($id);
     <div class="containerFunc">
         <div class="card">
             <h1>Editar cliente</h1>
-            <form action="recEditCliente.php" method="POST">
+            <form id="ValidacaoCliente" action="recEditCliente.php" method="POST">
 
 
                 <label for="id"></label>
@@ -59,6 +62,7 @@ $cliente = $bll->SelectId($id);
     </div>
 
     <?php include_once "../footer/footer.php" ?>
+    <script src="../validacao/validacaoCliente.js"></script>
 
 </body>
 
