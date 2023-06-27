@@ -2,6 +2,7 @@
 
 use BLL\bllFornecedor;
 
+include('../../BLL/protect.php');
 include_once '../../BLL/bllFornecedor.php';
 
 $bll = new \BLL\bllFornecedor;

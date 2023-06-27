@@ -2,6 +2,7 @@
 
 use BLL\bllCliente;
 
+include('../../BLL/protect.php');
 include_once '../../BLL/bllCliente.php';
 
 if (isset($_GET['busca']))

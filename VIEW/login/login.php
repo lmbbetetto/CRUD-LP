@@ -18,14 +18,14 @@ if (isset($_POST['codigo']) && isset($_POST['senha'])) {
     } else {
         // Obter os valores do formulário
         $codigo = $_POST['codigo'];
-        $senha = $_POST['senha'];
+        $senha = md5($_POST['senha']);
 
         // Criar uma instância da classe de conexão
         $conexao = Conexao::conectar();
 
-        // Escapar os valores para evitar SQL Injection
+        // Evitar SQL Injection
         $codigo = $conexao->quote($codigo);
-        $senha = $conexao->quote(md5($senha));
+        $senha = $conexao->quote($senha);
 
         // Consulta SQL
         $sql = "SELECT * FROM funcionario WHERE id = $codigo AND senha = $senha";

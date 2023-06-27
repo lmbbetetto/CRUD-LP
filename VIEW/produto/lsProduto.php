@@ -3,6 +3,7 @@
 use BLL\bllCategoria;
 use BLL\bllProduto;
 
+include('../../BLL/protect.php');
 include_once '../../BLL/bllProduto.php';
 include_once '../../BLL/bllCategoria.php';
 include_once '../../BLL/bllFornecedor.php';

@@ -2,6 +2,7 @@
 
 use BLL\bllFuncionario;
 
+include('../../BLL/protect.php');
 include_once '../../BLL/bllFuncionario.php';
 
 $bll = new \BLL\bllFuncionario();

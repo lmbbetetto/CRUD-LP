@@ -2,6 +2,7 @@
 
 use BLL\bllCategoria;
 
+include('../../BLL/protect.php');
 include_once '../../BLL/bllCategoria.php';
 
 if (isset($_GET['busca']))

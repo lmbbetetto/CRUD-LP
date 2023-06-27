@@ -2,6 +2,7 @@
 
 use BLL\bllVenda;
 
+include('../../BLL/protect.php');
 include_once '../../BLL/bllVenda.php';
 include_once '../../BLL/bllProduto.php';
 include_once '../../BLL/bllFuncionario.php';
