@@ -87,6 +87,7 @@ $("#validacaoFuncionario").validate({
 
         txtSenha: {
             required: "Campo Obrigatório",
+            rangelength: "Tamanho obrigatório: entre 6 e 15 caracteres",
         },
     }
 });
