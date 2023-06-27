@@ -30,12 +30,8 @@ include_once '../../BLL/bllProduto.php';
             <h1>Nova Venda</h1>
             <form id="validacaoVenda" action="recAddVenda.php" method="POST">
 
-                <div class="telCPF">
-                    <div>
-                        <label for="idProduto">ID do Produto</label>
-                        <input id="idProduto" type="text" name="txtIdProduto">
-                    </div>
-                </div>
+                <label for="idProduto">ID do Produto</label>
+                <input id="idProduto" type="text" name="txtIdProduto">
 
                 <div class="telCPF">
                     <div>
@@ -48,21 +44,9 @@ include_once '../../BLL/bllProduto.php';
                         <input id="idCliente" type="text" name="txtIdCliente">
                     </div>
                 </div>
-
-                <div class="telCPF">
-                    <div>
-                        <label for="qtdeVendida">Quantidade</label>
-                        <input id="qtdeVendida" type="text" name="txtQtdeVendida">
-                    </div>
-
-                    <div>
-                        <label for="valorUnitario"></label>
-                        <input id="valorUnitario" type="hidden" name="txtValorUnitario" value="
-                            <?php 
-                            
-                            ?>">
-                    </div>
-                </div>
+                
+                <label for="qtdeVendida">Quantidade</label>
+                <input id="qtdeVendida" type="text" name="txtQtdeVendida">
 
                 <label for="dataVenda">Data da Venda</label>
                 <input id="dataVenda" type="date" name="txtDataVenda">
