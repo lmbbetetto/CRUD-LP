@@ -59,7 +59,7 @@ else $lsProduto= $bll->SelectNome($busca);
                 <th>Nome</th>
                 <th>Categoria</th>
                 <th>Fornecedor</th>
-                <th>Qtde em Estoque</th>
+                <th>Estoque</th>
                 <th>Valor Unitário</th>
                 <th>Funções</th>
             </tr>
